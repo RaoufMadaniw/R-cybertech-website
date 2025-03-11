@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-CyberTech | Contact</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Load Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <h1 class="text-center mt-5">Get in Touch</h1>
+        <p class="text-center">Have a project in mind? Fill out the form and let's talk!</p>
+
+        <div class="contact-box">
+            <form class="contact-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+
+                <!-- Service Selection with Toggle Effect -->
+                <div class="mb-3">
+                    <label class="form-label">Select a Service</label>
+                    <div class="btn-group d-flex" role="group" id="service-selection">
+                        <button type="button" class="btn btn-outline-primary flex-fill" data-service="Web Development">Web Development</button>
+                        <button type="button" class="btn btn-outline-primary flex-fill" data-service="AI & Machine Learning">AI & Machine Learning</button>
+                        <button type="button" class="btn btn-outline-primary flex-fill" data-service="Cybersecurity">Cybersecurity</button>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="message" class="form-label">Project Details</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your project"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-danger w-100">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        © 2025 R-CyberTech. All rights reserved.
+    </footer>
+
+    <!-- Fix Navbar Toggling -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Load Navbar and ensure it initializes properly
+        fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+
+            // Ensure Bootstrap navbar toggle works after loading dynamically
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+            document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error loading the navbar:', error));
+
+        // Service Selection Toggle
+        document.addEventListener("DOMContentLoaded", function () {
+            const serviceButtons = document.querySelectorAll("#service-selection .btn");
+
+            serviceButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Remove active class from all buttons
+                    serviceButtons.forEach(btn => btn.classList.remove("active"));
+
+                    // Add active class to the clicked button
+                    this.classList.add("active");
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

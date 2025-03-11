@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-CyberTech | About</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Load Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <h1 class="text-center mt-5">About R-CyberTech</h1>
+        <p class="text-center">Empowering businesses with cutting-edge technology solutions.</p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>Our Mission</h3>
+                    <p>We provide top-tier web development, AI solutions, and cybersecurity.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>Our Vision</h3>
+                    <p>Leading the industry with innovation, security, and digital transformation.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>Our Values</h3>
+                    <p>Integrity, innovation, and customer satisfaction drive everything we do.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Founder and Company Story Section -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="info-box">
+                    <h3>Our Story</h3>
+                    <p>Founded by Raouf Allamadani, R-CyberTech was built to provide secure and innovative tech solutions for businesses worldwide.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="info-box">
+                    <h3>Meet Our Founder</h3>
+                    <p>Raouf Allamadani, a passionate tech entrepreneur, leads R-CyberTech with a vision of transforming the tech industry through innovation, AI, and cybersecurity advancements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        © 2025 R-CyberTech. All rights reserved.
+    </footer>
+
+    <!-- Fix Navbar Toggling -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Load Navbar and ensure Bootstrap JavaScript is properly applied
+        fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+
+            // Ensure Bootstrap navbar toggle works after dynamically loading it
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+            document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error loading the navbar:', error));
+    </script>
+
+</body>
+</html>

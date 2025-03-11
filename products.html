@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-CyberTech | Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Load Navbar -->
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <h1 class="text-center mt-5">Our Products & Resources</h1>
+        <p class="text-center">Explore our cutting-edge cybersecurity solutions designed to protect your business.</p>
+
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>CyberShield Suite</h3>
+                    <p>Advanced security software with AI-driven threat detection.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>AI Security Defender</h3>
+                    <p>Machine learning-powered defense system for enterprise security.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="info-box">
+                    <h3>CloudSecure Pro</h3>
+                    <p>Protect your cloud infrastructure with top-tier encryption.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        © 2025 R-CyberTech. All rights reserved.
+    </footer>
+
+    <!-- Fix Navbar Toggling -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Load Navbar and ensure Bootstrap JavaScript is properly applied
+        fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+
+            // Ensure Bootstrap navbar toggle works after dynamically loading it
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+            document.body.appendChild(script);
+        })
+        .catch(error => console.error('Error loading the navbar:', error));
+    </script>
+
+</body>
+</html>
