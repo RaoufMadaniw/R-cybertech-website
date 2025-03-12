@@ -6,6 +6,41 @@
     <title>R-CyberTech | Contact</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Success Message Styling */
+        #successMessage {
+            display: none;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.7);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: red;
+            opacity: 0.7;
+            z-index: 9999;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(720deg); }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,8 +51,11 @@
         <h1 class="text-center mt-5">Get in Touch</h1>
         <p class="text-center">Have a project in mind? Fill out the form and let's talk!</p>
 
+        <!-- Success Message -->
+        <div id="successMessage">✅ Thank You! Your order has been received.</div>
+
         <div class="contact-box p-4 bg-dark text-white rounded shadow">
-            <form class="contact-form">
+            <form id="contactForm" class="contact-form">
                 <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
@@ -38,7 +76,32 @@
                     <input type="text" class="form-control" id="company" placeholder="Your company (optional)">
                 </div>
 
-                <!-- Updated Service Selection with New Services -->
+                <!-- Address Fields -->
+                <div class="mb-3">
+                    <label for="address" class="form-label">Home Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="state" class="form-label">State</label>
+                        <select class="form-control" id="state" required>
+                            <option value="">Choose...</option>
+                            <option value="CA">California</option>
+                            <option value="TX">Texas</option>
+                            <option value="NY">New York</option>
+                            <option value="FL">Florida</option>
+                            <option value="IL">Illinois</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="zip" class="form-label">Zip Code</label>
+                        <input type="text" class="form-control" id="zip" placeholder="12345" required>
+                    </div>
+                </div>
+
+                <!-- Updated Service Selection -->
                 <div class="mb-3">
                     <label class="form-label">Select a Service</label>
                     <div class="btn-group d-flex flex-wrap" role="group" id="service-selection">
@@ -56,6 +119,23 @@
                     <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your project" required></textarea>
                 </div>
 
+                <!-- Payment Section -->
+                <div class="mb-3">
+                    <label class="form-label">Payment Method</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                        <label class="form-check-label" for="creditCard">Credit Card</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="debitCard">
+                        <label class="form-check-label" for="debitCard">Debit Card</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="paypal">
+                        <label class="form-check-label" for="paypal">PayPal</label>
+                    </div>
+                </div>
+
                 <button type="submit" class="btn btn-danger w-100">Submit Request</button>
             </form>
         </div>
@@ -69,38 +149,50 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Load Navbar and ensure Bootstrap JavaScript is properly applied
+        // Load Navbar
         fetch('navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
-
-            // Ensure Bootstrap navbar toggle works after dynamically loading it
-            document.addEventListener("click", function (event) {
-                const navbarToggler = document.querySelector(".navbar-toggler");
-                const navbarCollapse = document.querySelector(".navbar-collapse");
-
-                if (navbarToggler && event.target === navbarToggler) {
-                    navbarCollapse.classList.toggle("show");
-                }
-            });
-
         })
         .catch(error => console.error('Error loading the navbar:', error));
 
         // Service Selection Toggle
         document.addEventListener("DOMContentLoaded", function () {
             const serviceButtons = document.querySelectorAll("#service-selection .btn");
-
             serviceButtons.forEach(button => {
                 button.addEventListener("click", function () {
-                    // Remove active class from all buttons
                     serviceButtons.forEach(btn => btn.classList.remove("active"));
-
-                    // Add active class to the clicked button
                     this.classList.add("active");
                 });
             });
+        });
+
+        // Submit Form Behavior
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            // Show success message
+            const successMessage = document.getElementById("successMessage");
+            successMessage.style.display = "block";
+
+            // Create Confetti Animation
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.backgroundColor = ["red", "blue", "green", "yellow", "purple"][Math.floor(Math.random() * 5)];
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+
+            // Hide the message after 4 seconds
+            setTimeout(() => {
+                successMessage.style.display = "none";
+            }, 4000);
+
+            // Clear form fields
+            this.reset();
         });
     </script>
 
