@@ -1,86 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R-CyberTech | About</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R-CyberTech | About</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      background-color: #0d1117;
+      border-bottom: 2px solid #6f00ff;
+    }
+
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+    }
+
+    .nav-link:hover {
+      color: #aee8ff !important;
+    }
+
+    .hero-about {
+      background: linear-gradient(to right, #6f00ff, #000000);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      margin-top: 56px;
+    }
+
+    .info-box {
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 30px;
+      border: 1px solid #6f00ff;
+      box-shadow: 0 4px 12px rgba(111, 0, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer-section {
+      background-color: #0d1117;
+      color: #ffffff;
+      padding: 4rem 1rem;
+      border-top: 2px solid #6f00ff;
+      margin-top: 80px;
+    }
+
+    .footer-section h5 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    .footer-section a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Load Navbar -->
-    <div id="navbar-container"></div>
-
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <h1 class="text-center mt-5">About R-CyberTech</h1>
-        <p class="text-center">Empowering businesses with cutting-edge technology solutions.</p>
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="info-box">
-                    <h3>Our Mission</h3>
-                    <p>We provide top-tier web development, AI solutions, and cybersecurity.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <h3>Our Vision</h3>
-                    <p>Leading the industry with innovation, security, and digital transformation.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <h3>Our Values</h3>
-                    <p>Integrity, innovation, and customer satisfaction drive everything we do.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Founder and Company Story Section -->
-        <div class="row mt-3">
-            <div class="col-md-6">
-                <div class="info-box">
-                    <h3>Our Story</h3>
-                    <p>Founded by Raouf Allamadani, R-CyberTech was built to provide secure and innovative tech solutions for businesses worldwide.</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="info-box">
-                    <h3>Meet Our Founder</h3>
-                    <p>Raouf Allamadani, a passionate tech entrepreneur, leads R-CyberTech with a vision of transforming the tech industry through innovation, AI, and cybersecurity advancements.</p>
-                </div>
-            </div>
-        </div>
+      <a class="navbar-brand fw-bold" href="index.html">R-CyberTech</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <footer class="text-center mt-5">
-        © 2025 R-CyberTech. All rights reserved.
-    </footer>
+  <!-- Hero Section -->
+  <header class="hero-about">
+    <h1 class="display-5 fw-bold">Get to Know R-CyberTech</h1>
+    <p class="lead">Empowering businesses with future-ready technology & innovation.</p>
+  </header>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Mission, Vision, Values -->
+  <section class="container text-center mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="info-box">
+          <h3>🌟 Our Mission</h3>
+          <p>We provide top-tier web development, AI solutions, and cybersecurity that accelerate business growth.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="info-box">
+          <h3>🚀 Our Vision</h3>
+          <p>To lead digital transformation across industries through innovation, reliability, and excellence.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="info-box">
+          <h3>💡 Our Values</h3>
+          <p>Integrity, innovation, transparency, and client success are at the heart of all we do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Load Navbar and ensure Bootstrap JavaScript is properly applied
-        fetch('navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar-container').innerHTML = data;
+  <!-- Company Story & Founder -->
+  <section class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="info-box">
+          <h3>📘 Our Story</h3>
+          <p>R-CyberTech was founded to solve real-world digital problems. Since day one, we’ve focused on making technology simple, secure, and scalable for businesses of all sizes.</p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="info-box">
+          <h3>👨‍💻 Meet the Founder</h3>
+          <p>Raouf Allamadani, a passionate innovator, launched R-CyberTech with a mission to bridge the gap between people and tech using AI, cybersecurity, and seamless UX.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // Ensure Bootstrap navbar toggle works after dynamically loading it
-            document.addEventListener("click", function (event) {
-                const navbarToggler = document.querySelector(".navbar-toggler");
-                const navbarCollapse = document.querySelector(".navbar-collapse");
+  <!-- Call to Action -->
+  <section class="text-center mt-5 mb-5">
+    <p class="fs-5 text-white">Want to work with a team that’s as passionate about tech as you are?</p>
+    <a href="contact.html" class="btn btn-outline-light btn-lg">Let’s Connect</a>
+  </section>
 
-                if (navbarToggler && event.target === navbarToggler) {
-                    navbarCollapse.classList.toggle("show");
-                }
-            });
+  <!-- Footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4 mb-4">
+          <h5>R-CyberTech</h5>
+          <p>We’re your trusted partner in digital innovation. Expect nothing less than intelligent, secure, and visionary tech.</p>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4">
+          <h5>Contact</h5>
+          <ul>
+            <li>Email: <a href="mailto:support@rcybertech.com">support@rcybertech.com</a></li>
+            <li>Phone: (555) 123-4567</li>
+            <li>Location: 123 Tech Lane, Innovation City, CA</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 R-CyberTech. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
-        })
-        .catch(error => console.error('Error loading the navbar:', error));
-    </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
